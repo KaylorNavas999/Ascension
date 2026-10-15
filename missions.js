@@ -1,0 +1,11 @@
+/* Generic local catalogue. No user data or remote generation. */
+(function(root){'use strict';
+const rows={
+ Sport:[['walk','Marcher à son rythme','marche',15],['move','Faire une mobilité douce','mobilité',10],['session','Suivre sa séance habituelle','programme personnel',25],['balance','Travailler son équilibre sans douleur','équilibre',10],['outside','Prendre une pause active dehors','activité douce',15],['recover','Préparer sa récupération','récupération',10]],
+ Lecture:[['read','Lire un passage choisi','lecture',15],['notes','Noter trois idées d’une lecture','lecture',10],['review','Relire ses notes','révision',10],['learn','Étudier une notion choisie','apprentissage',20],['explain','Expliquer une idée avec ses mots','apprentissage',10],['explore','Explorer un chapitre nouveau','lecture',15]],
+ Méditation:[['breathe','Prendre un temps de respiration calme','respiration',5],['journal','Écrire quelques lignes de journal','journal',10],['quiet','Prendre un moment sans écran','calme',10],['observe','Observer ses sensations sans jugement','attention',5],['gratitude','Noter un moment apprécié','journal',5],['pause','Faire une pause consciente','calme',5]],
+ Famille:[['listen','Écouter un proche sans distraction','proches',15],['message','Prendre des nouvelles d’un proche','proches',10],['share','Partager un moment de qualité','proches',20],['help','Faire un geste attentionné','entraide',10],['invite','Proposer un moment à partager','proches',10],['thanks','Exprimer sa reconnaissance','proches',5]],
+ Travail:[['focus','Avancer une tâche importante','projet',25],['clarify','Clarifier la prochaine action d’un projet','projet',10],['practice','Pratiquer une compétence choisie','compétence',20],['prepare','Préparer une prochaine séance de travail','organisation',10],['finish','Finaliser une petite tâche maîtrisable','projet',15],['review','Faire le bilan de ses actions','organisation',10]]};
+const catalogue=Object.entries(rows).flatMap(([category,entries])=>entries.map(([id,title,goal,duration])=>({id:category+'-'+id,title,category,goal,duration,difficulty:1,maxPerWeek:2,xp:20,description:'Adapter cette action à ses capacités et à son contexte.'})));
+root.MissionCatalogue=catalogue;if(typeof module!=='undefined')module.exports=catalogue;
+})(globalThis);
